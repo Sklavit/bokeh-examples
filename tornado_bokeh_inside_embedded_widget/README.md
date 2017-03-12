@@ -19,8 +19,4 @@ http://bokeh.pydata.org/en/latest/docs/user_guide/server.html#embedding-bokeh-se
 http://bokeh.pydata.org/en/latest/docs/reference/embed.html#bokeh.embed.autoload_server
 
 ## Requirement
-
-See: 
-environment.yml
-
-
+[conda environment description](environment.yml)
