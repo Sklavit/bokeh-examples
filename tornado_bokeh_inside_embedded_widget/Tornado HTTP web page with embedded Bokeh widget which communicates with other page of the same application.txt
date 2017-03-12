@@ -1,5 +1,0 @@
-References:
-https://github.com/bokeh/bokeh/blob/0.12.4/examples/howto/server_embed/tornado_embed.py
-http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html#server-data
-http://bokeh.pydata.org/en/latest/docs/user_guide/server.html#embedding-bokeh-server-as-a-library
-http://bokeh.pydata.org/en/latest/docs/reference/embed.html#bokeh.embed.autoload_server

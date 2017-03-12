@@ -1,20 +1,14 @@
 # coding=utf-8
-# Requierements: python 3.4.5; bokeh 0.12.3; tornado 4.4.1
-# I may miss some imports...
 import os.path
 
 import bokeh
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
+import tornado
 from bokeh.application.handlers import FunctionHandler
+from bokeh.server.server import Server
 from bokeh.util.browser import view
 from tornado.options import define, options
 
-
 from tornado_bokeh_inside_embedded_widget.handlers import MainHandler, SecondHandler
-
-from tornado_bokeh_inside_embedded_widget.bokeh_server import get_bokeh_server
 
 define("port", default=8888, help="run on the given port", type=int)
 
@@ -45,7 +39,8 @@ if __name__ == '__main__':
 
     bokeh_app = bokeh.application.Application(FunctionHandler(MainHandler.modify_doc))
 
-    bokeh_server = get_bokeh_server(io_loop, {'/bokeh/app': bokeh_app})
+    bokeh_server = Server({'/bokeh/app': bokeh_app},
+                          io_loop=io_loop, allow_websocket_origin=['localhost:8888'])
     bokeh_server.start(start_loop=False)
 
     io_loop.add_callback(view, "http://localhost:8888/main_page")
